@@ -1,5 +1,4 @@
-const { spawn } = require('child_process');
-const path = require('path');
+console.log("Calling ML service:", process.env.PYTHON_API_URL);
 const Metric = require('../models/Metric');
 const { getLatestMetrics } = require('../services/monitorService');
 const si = require('systeminformation');
@@ -169,28 +168,5 @@ const getPrediction = async (req, res) => {
   }
 };
 
-// Helper: run python script and parse JSON output
-function runPython(scriptPath, stdinData) {
-  return new Promise((resolve, reject) => {
-    const py = spawn('python', [scriptPath]);
-    let stdout = '';
-    let stderr = '';
-
-    py.stdout.on('data', (d) => (stdout += d.toString()));
-    py.stderr.on('data', (d) => (stderr += d.toString()));
-
-    py.on('close', (code) => {
-      if (code !== 0) return reject(new Error(`Python exited ${code}: ${stderr}`));
-      try {
-        resolve(JSON.parse(stdout.trim()));
-      } catch {
-        reject(new Error(`Python output parse error: ${stdout}`));
-      }
-    });
-
-    py.stdin.write(stdinData);
-    py.stdin.end();
-  });
-}
 
 module.exports = { getStatus, getPrediction };
