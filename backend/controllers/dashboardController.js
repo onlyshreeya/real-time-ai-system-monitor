@@ -157,7 +157,7 @@ const getPrediction = async (req, res) => {
       };
     }
 
-    const result = await response.json();
+
     let cause = null;
     let suggestion = null;
 
