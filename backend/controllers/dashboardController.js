@@ -129,18 +129,13 @@ const getPrediction = async (req, res) => {
     }
 
     // Call Python ML model
-    // simple linear trend prediction
-    const last = cpuValues[cpuValues.length - 1];
-    const prev = cpuValues[cpuValues.length - 2];
-    const slope = last - prev;
+    const response = await fetch(process.env.PYTHON_API_URL + '/predict', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ values: cpuValues })
+    });
 
-    const predicted = Math.max(0, Math.min(100, last + slope));
-
-    const result = {
-      prediction: predicted,
-      confidence: Math.min(1, Math.abs(slope) / 10),
-      slope,
-    };
+    const result = await response.json();
     let cause = null;
     let suggestion = null;
 
