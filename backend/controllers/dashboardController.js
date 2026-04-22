@@ -128,11 +128,34 @@ const getPrediction = async (req, res) => {
     }
 
     // Call Python ML model
-    const response = await fetch(process.env.PYTHON_API_URL + '/predict', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ values: cpuValues })
-    });
+    let result;
+
+    try {
+      const response = await fetch(process.env.PYTHON_API_URL + '/predict', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ values: cpuValues })
+      });
+
+      const data = await response.json();
+
+      result = {
+        prediction: data.prediction ?? 0,
+        confidence: data.confidence ?? 0,
+        slope: data.slope ?? 0
+      };
+
+      console.log("ML RESULT:", result);
+
+    } catch (err) {
+      console.log("ML ERROR:", err.message);
+
+      result = {
+        prediction: cpuValues[cpuValues.length - 1] || 0,
+        confidence: 0,
+        slope: 0
+      };
+    }
 
     const result = await response.json();
     let cause = null;
