@@ -11,9 +11,8 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:3000', 'http://127.0.0.1:5173'],
+  origin: '*',
   methods: ['GET', 'POST', 'DELETE'],
-  credentials: true,
 }));
 app.use(express.json());
 
@@ -42,7 +41,7 @@ const start = async () => {
   await connectDB();
   startMonitoring();
   app.listen(PORT, () => {
-    console.log(`\n🚀 Server running on http://localhost:${PORT}`);
+    console.log(`🚀 Server running on port ${PORT}`);
     console.log(`📊 API endpoints:`);
     console.log(`   GET  /api/status`);
     console.log(`   GET  /api/predict`);

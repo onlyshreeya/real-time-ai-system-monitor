@@ -328,7 +328,7 @@ export default function App() {
                 lineHeight: 2,
               }}>
                 <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--text-primary)', marginBottom: 12 }}>Configuration</div>
-                <div>Backend URL: <span style={{ color: '#22d3ee' }}>http://localhost:5000</span></div>
+                <div>Backend URL: <span style={{ color: '#22d3ee' }}>{import.meta.env.VITE_API_URL}</span></div>
                 <div>Poll interval: <span style={{ color: '#22d3ee' }}>{REFRESH_MS}ms</span></div>
                 <div>Prediction window: <span style={{ color: '#22d3ee' }}>30 points</span></div>
                 <div>Alert threshold: <span style={{ color: '#f87171' }}>60% CPU</span></div>

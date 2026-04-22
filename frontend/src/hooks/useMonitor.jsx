@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { toast } from "react-toastify";
 
-const API = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const API = import.meta.env.VITE_API_URL + '/api';
 const DEMO_MODE = import.meta.env.VITE_DEMO_MODE === "true";
 
 const DEFAULT_STATUS = {

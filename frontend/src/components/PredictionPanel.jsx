@@ -33,7 +33,7 @@ export default function PredictionPanel({ prediction }) {
 
         <button
           onClick={async () => {
-            await fetch('http://localhost:5000/api/simulate', {
+            await fetch(`${import.meta.env.VITE_API_URL}/api/simulate`, {
               method: 'POST'
             });
           }}

@@ -129,8 +129,18 @@ const getPrediction = async (req, res) => {
     }
 
     // Call Python ML model
-    const pyPath = path.join(__dirname, '..', 'predict.py');
-    const result = await runPython(pyPath, JSON.stringify(cpuValues));
+    // simple linear trend prediction
+    const last = cpuValues[cpuValues.length - 1];
+    const prev = cpuValues[cpuValues.length - 2];
+    const slope = last - prev;
+
+    const predicted = Math.max(0, Math.min(100, last + slope));
+
+    const result = {
+      prediction: predicted,
+      confidence: Math.min(1, Math.abs(slope) / 10),
+      slope,
+    };
     let cause = null;
     let suggestion = null;
 
