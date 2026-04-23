@@ -77,12 +77,17 @@ Unlike traditional dashboards, this project focuses on:
 * Custom trend + anomaly detection logic
 
 ---
+🖥️ Live Demo
 
+This dashboard currently displays real-time system metrics from Shreeya’s machine (hosted agent).
+
+👉 Open the live app:
+https://real-time-ai-system-monitor.vercel.app
 ## ⚙️ Local Setup
 
 ### 1. Clone the repository
 
-```bash
+```
 git clone https://github.com/YOUR_USERNAME/ai-system-monitor.git
 cd ai-system-monitor
 ```
@@ -91,7 +96,7 @@ cd ai-system-monitor
 
 ### 2. Backend setup
 
-```bash
+```
 cd backend
 npm install
 npm run dev
@@ -109,12 +114,27 @@ npm start
 
 ---
 
-## 🌐 Deployment (Planned / Supported)
+⚙️ Run Locally (Monitor Your Own PC)
 
-* **Frontend:** Vercel
-* **Backend:** Render / Railway
-* **Database:** MongoDB Atlas
+To monitor your own system:
+```
+git clone <repo>
+cd project
+npm install
+```
 
+Start backend:
+```
+cd backend
+npm run dev
+```
+Start frontend:
+```
+cd frontend
+npm run dev
+```
+
+Now the dashboard will display your own system metrics.
 ---
 
 ## 💡 Highlights
@@ -128,10 +148,10 @@ npm start
 
 ## 📌 Future Improvements
 
-* WebSocket-based real-time updates
-* Export reports (CSV / PDF)
-* More advanced ML models for prediction
-* User authentication & dashboards
+- Monitor user's own system via local agent
+- Multi-device support
+- Real-time WebSocket updates
+- Downloadable desktop client
 
 ---
 
