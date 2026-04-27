@@ -134,6 +134,12 @@ npm start
 * User authentication & dashboards
 
 ---
+## 📄 Documentation
+
+- 📊 [Technical Audit](docs/AUDIT.md)
+- 📘 [Project Report (LaTeX)](docs/report.tex)
+- 📑 [Project Report PDF](docs/report.pdf)
+---
 
 ## 👤 Author
 

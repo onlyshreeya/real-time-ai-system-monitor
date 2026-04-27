@@ -1,0 +1,87 @@
+\documentclass[12pt]{article}
+
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{titlesec}
+
+\title{\textbf{AI System Monitor}\
+\large Real-Time Monitoring with Predictive Analytics}
+\author{Shreeya Srivastava}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+The AI System Monitor is a full-stack web application designed to monitor system performance in real time while providing predictive insights using machine learning. The system tracks CPU, memory, disk, and network usage and forecasts future CPU load.
+
+\section{Objectives}
+\begin{itemize}
+\item Monitor system metrics in real time
+\item Predict CPU usage using machine learning
+\item Detect anomalies in system behavior
+\item Provide explainable insights
+\end{itemize}
+
+\section{System Architecture}
+The system follows a distributed architecture:
+
+\begin{itemize}
+\item \textbf{Frontend:} React application for visualization
+\item \textbf{Backend:} Node.js API for data processing
+\item \textbf{ML Service:} Python Flask microservice for predictions
+\item \textbf{Database:} MongoDB for data storage
+\end{itemize}
+
+\section{Technologies Used}
+\subsection{Frontend}
+React, Chart.js, Vite
+
+\subsection{Backend}
+Node.js, Express, Mongoose, systeminformation
+
+\subsection{Machine Learning}
+Python, Flask, NumPy
+
+\section{Working}
+\begin{enumerate}
+\item Backend collects system metrics periodically
+\item Data is stored in MongoDB
+\item Frontend fetches data at regular intervals
+\item Backend sends CPU data to Python service
+\item Python service returns prediction results
+\item Frontend visualizes metrics and predictions
+\end{enumerate}
+
+\section{Anomaly Detection}
+Anomalies are detected using Z-score analysis. When deviations exceed a threshold, alerts are triggered with explanations.
+
+\section{Results}
+The system successfully:
+\begin{itemize}
+\item Displays real-time system metrics
+\item Predicts CPU usage trends
+\item Highlights anomalies visually
+\item Provides actionable insights
+\end{itemize}
+
+\section{Limitations}
+\begin{itemize}
+\item Basic ML model (linear regression)
+\item Polling-based updates instead of real-time streaming
+\item No authentication system
+\end{itemize}
+
+\section{Future Work}
+\begin{itemize}
+\item WebSocket integration
+\item Advanced ML models (LSTM, ARIMA)
+\item Multi-device monitoring
+\item Report export features
+\end{itemize}
+
+\section{Conclusion}
+The AI System Monitor demonstrates a practical integration of full-stack development with machine learning. It provides a strong foundation for building scalable monitoring systems.
+
+\end{document}

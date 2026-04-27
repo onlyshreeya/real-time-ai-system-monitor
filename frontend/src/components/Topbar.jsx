@@ -56,7 +56,7 @@ export default function Topbar({ status, connected }) {
             width: 5, height: 5, borderRadius: '50%', background: '#22d3ee',
             animation: connected ? 'pulse 1.4s infinite' : 'none',
           }} />
-          {connected ? 'Live' : 'Offline'}
+          {connected ? 'Live from Shreeya\'s System' : 'Offline'}
         </div>
       </div>
 
