@@ -38,7 +38,7 @@ export default function App() {
               fontSize: 12, color: '#f87171',
               fontFamily: 'var(--font-mono)',
             }}>
-              ⚠ {error} — Is your backend running on port 5000?
+              ⚠ {error} — Check Backend
             </div>
           )}
 
